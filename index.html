@@ -13,13 +13,43 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("demo").innerHTML = this.responseText;
+				users = JSON.parse(this.responseText)["users"];
+				for(i in users){
+					if(users[i]["name"] == document.forms["login"]["user"].value){
+						sessionStorage.setItem("indx",i.toString());
+						if(users[i]["perfil"] == "adm"){
+							sessionStorage.setItem("perfil",document.forms["login"]["perfil"].value);
+						}
+						if(users[i]["perfil"] == "fnc"){
+							if(document.forms["login"]["perfil"].value == "adm"){
+								sessionStorage.setItem("perfil","fnc");
+							}else{
+								sessionStorage.setItem("perfil",document.forms["login"]["perfil"].value);
+							}
+						}
+						if(users[i]["perfil"] == "usr"){
+							sessionStorage.setItem("perfil","usr");
+						}
+						if(sessionStorage.getItem("perfil") != "usr"){
+							if(users[i]["pass"] == document.forms["login"]["pass"].value){
+								sessionStorage.setItem("user",users[i]["name"]);
+								location.assign("./home");
+							}else{
+								sessionStorage.clear();
+								location.reload(true);
+							}
+						}else{
+							sessionStorage.setItem("user",users[i]["name"]);
+							location.assign("./home");
+						}
+
+					}
+				}
 			}
 		};
 		xhttp.open("GET", "./tables/users.json", true);
 		xhttp.send();
 	}
-
     </script>
 </head>
 <body>
@@ -27,32 +57,32 @@
     <img src="icon.ico"/><div class="header">Biblioteca</div>
 </div>
 <div class="lay-hsz-12 sb-cell grid-cnt">
-<div class="lay-hsz-03"></div>
-<form class="lay-hsz-06 grid-cnt" method="post" action="procedures/load.html">
-    <div class="lay-hsz-06 lay-vsz-06"></div>
-    <div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Perfíl:</div></div>
-    <select class="lay-hsz-05 lay-vsz-01" name="perf">
-        <option value="adm">Administrador</option>
-        <option value="fnc">Funcionário</option>
-        <option value="usr" selected>Usuário</option>
-    </select>
+	<div class="lay-hsz-12"></div>
+	<div class="lay-hsz-03"></div>
+	<form class="lay-hsz-06 grid-cnt" name="login" method="post" action="procedures/load.html">
+    	<div class="lay-hsz-06 lay-vsz-06"></div>
+    	<div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Perfíl:</div></div>
+    	<select class="lay-hsz-05 lay-vsz-01" name="perfil">
+        	<option value="adm">Administrador</option>
+        	<option value="fnc">Funcionário</option>
+        	<option value="usr" selected>Usuário</option>
+    	</select>
 
-    <div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Usuário:</div></div>
-    <input class="lay-hsz-05 lay-vsz-01" type="text" name="user" value=""/>
+    	<div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Usuário:</div></div>
+    	<input class="lay-hsz-05 lay-vsz-01" type="text" name="user" value=""/>
 
-    <div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Senha:</div></div>
-    <input class="lay-hsz-05 lay-vsz-01" type="password" name="pass" value=""/>
+    	<div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Senha:</div></div>
+    	<input class="lay-hsz-05 lay-vsz-01" type="password" name="pass" value=""/>
 
-    <div class="lay-hsz-06 lay-vsz-01"></div>
-    <div class="lay-hsz-02 lay-vsz-01"></div>
-    <input class="lay-hsz-02 lay-vsz-01 sb-cell button" type="button" name="conn" value="Conectar" onclick="loadUser()"/>
-    <div class="lay-hsz-02 lay-vsz-01"></div>
-    <div class="lay-hsz-06 lay-vsz-06" id="demo">
-	</div>
-</form>
-<div class="lay-hsz-03"></div>
-<div class="lay-hsz-12 footer"></div>
+    	<div class="lay-hsz-06 lay-vsz-01"></div>
+    	<div class="lay-hsz-02 lay-vsz-01"></div>
+    	<input class="lay-hsz-02 lay-vsz-01 sb-cell button" type="button" name="conn" value="Conectar" onclick="loadUser()"/>
+    	<div class="lay-hsz-02 lay-vsz-01"></div>
+    	<div class="lay-hsz-06 lay-vsz-06">
+		</div>
+	</form>
+	<div class="lay-hsz-03"></div>
 </div>
-<div class="lay-hsz-12 footer"></div>
+<div class="lay-hsz-12 footer" id ></div>
 </body>
 </html>
