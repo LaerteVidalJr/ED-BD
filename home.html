@@ -15,7 +15,7 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				return this.responseText;
+				document.write(this.responseText);
 			}
 		};
 		xhttp.open("GET", url, true);
@@ -30,13 +30,13 @@
     <div class="lay-hsz-12 sb-cell grid-cnt">
         <script type="text/javascript">
             if(sessionStorage.getItem("perfil")=="adm"){
-                document.write(loadhtml("homeadm.html"));
+                loadhtml("homeadm.html");
             }
             if(sessionStorage.getItem("perfil")=="fnc"){
-                document.write(loadhtml("homefnc.html"));
+                loadhtml("homefnc.html");
             }
             if(sessionStorage.getItem("perfil")=="usr"){
-                document.write(loadhtml("homeusr.html"));
+                loadhtml("homeusr.html");
             }
         </script>
         <a class="lay-hsz-01 lay-vsz-fx sb-cell flex-cnt button" href="pesquisa.php">
