@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+[class*="lay-"]{
+    /*background-color: #FFFFFF;*/
+}
+
+.sb-cell{
+    border-width: thin;
+    border-style: solid;
+    border-color: #EFCE0D;
+    background-color: #FFDEAD;
+    color: #000000;
+}
+.inv-sb-cell{
+    border-width: thin;
+    border-style: solid;
+    border-color: #EFCE0D;
+    background-color: #EFCE0D;
+    color: #FFFFFF;
+}
+
+.overflow-area{
+    overflow-y: scroll;
+    align-content: space-between;
+}
+
+.lay-vsz-fx{height: 30px;}
+.lay-vsz-01{grid-row-end: span 1;}
+.lay-vsz-02{grid-row-end: span 2;}
+.lay-vsz-03{grid-row-end: span 3;}
+.lay-vsz-04{grid-row-end: span 4;}
+.lay-vsz-05{grid-row-end: span 5;}
+.lay-vsz-06{grid-row-end: span 6;}
+.lay-vsz-07{grid-row-end: span 7;}
+.lay-vsz-08{grid-row-end: span 8;}
+.lay-vsz-09{grid-row-end: span 9;}
+.lay-vsz-10{grid-row-end: span 10;}
+.lay-vsz-11{grid-row-end: span 11;}
+.lay-vsz-12{grid-row-end: span 12;}
+
+.lay-hsz-01{grid-column-end: span 1;}
+.lay-hsz-02{grid-column-end: span 2;}
+.lay-hsz-03{grid-column-end: span 3;}
+.lay-hsz-04{grid-column-end: span 4;}
+.lay-hsz-05{grid-column-end: span 5;}
+.lay-hsz-06{grid-column-end: span 6;}
+.lay-hsz-07{grid-column-end: span 7;}
+.lay-hsz-08{grid-column-end: span 8;}
+.lay-hsz-09{grid-column-end: span 9;}
+.lay-hsz-10{grid-column-end: span 10;}
+.lay-hsz-11{grid-column-end: span 11;}
+.lay-hsz-12{grid-column-end: span 12;}
+
+.flex-cnt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid-cnt{
+    display: grid;
+    margin: 0px;
+    justify-content: stretch;
+}
+
+body{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 60px calc(100vh - 120px) 20px;
+	background-color: #FFDEAD;
+    margin: 0px;
+    padding: 10px;
+    grid-gap: 10px;
+}
+
+.footer{
+    font-size: 14px;
+    line-height: 1em;
+    padding: 2px 2px;
+    text-align: right;
+}
+
+.header{
+    font-size: 30px;
+    line-height: 1em;
+    padding: 2px 2px;
+    text-align: left;
+}
+
+.button{
+    background-color: #FFDEAD;
+    color: black;
+    text-decoration: none;
+}
+
+.button:hover{
+    background-color: #e2c100;
+}
+
+.button:active{
+    background-color: #e2c100;
+    color: #FFFFFF;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+}
