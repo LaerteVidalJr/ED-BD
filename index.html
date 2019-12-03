@@ -4,7 +4,9 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=utf8-bin"/>
 	<title>Biblioteca</title>
 	<link rel="stylesheet" type="text/css" href="schema.css"/>
+	
 	<link rel="icon" type="image/x-icon" href="icon.ico"/>
+
     <script type="text/javascript">
 
 	var users;
@@ -33,14 +35,14 @@
 						if(sessionStorage.getItem("perfil") != "usr"){
 							if(users[i]["pass"] == document.forms["login"]["pass"].value){
 								sessionStorage.setItem("user",users[i]["name"]);
-								location.assign("./home");
+								location.assign("./home.html");
 							}else{
 								sessionStorage.clear();
 								location.reload(true);
 							}
 						}else{
 							sessionStorage.setItem("user",users[i]["name"]);
-							location.assign("./home");
+							location.assign("./home.html");
 						}
 
 					}

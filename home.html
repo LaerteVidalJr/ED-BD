@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf8-bin"/>
+	<title>Biblioteca</title>
+	<link rel="stylesheet" type="text/css" href="schema.css"/>
+
+	<link rel="icon" type="image/x-icon" href="icon.ico"/>
+
+    <script type="text/javascript">
+
+	var users;
+
+	function loadhtml(url) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				return this.responseText;
+			}
+		};
+		xhttp.open("GET", url, true);
+		xhttp.send();
+	}
+    </script>
+</head>
+<body>
+    <div class="lay-hsz-12 flex-cnt">
+        <img src="icon.ico"/><div class="header">Biblioteca</div>
+    </div>
+    <div class="lay-hsz-12 sb-cell grid-cnt">
+        <script type="text/javascript">
+            if(sessionStorage.getItem("perfil")=="adm"){
+                document.write(loadhtml("./homeadm.html"));
+            }
+            if(sessionStorage.getItem("perfil")=="fnc"){
+                document.write(loadhtml("./homefnc.html"));
+            }
+            if(sessionStorage.getItem("perfil")=="usr"){
+                document.write(loadhtml("./homeusr.html"));
+            }
+        </script>
+        <a class="lay-hsz-01 lay-vsz-fx sb-cell flex-cnt button" href="pesquisa.php">
+            <div >Pesquisa</div>
+        </a>
+        <a class="lay-hsz-01 lay-vsz-fx sb-cell flex-cnt button" href="procedures/unload.php">
+            <div >Sair</div>
+        </a>
+        <div class="lay-hsz-07 lay-vsz-08 grid-cnt"></div>
+    </div>
+    <div class="lay-hsz-12 footer" id ></div>
+</body>
+</html>
