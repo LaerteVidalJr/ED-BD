@@ -6,8 +6,19 @@
 	<link rel="stylesheet" type="text/css" href="schema.css"/>
 	<link rel="icon" type="image/x-icon" href="icon.ico"/>
     <script type="text/javascript">
-        
-        var xhttp = new XMLHttpRequest();
+
+	var users;
+
+	function loadUser() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("demo").innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("GET", "./tables/users.json", true);
+		xhttp.send();
+	}
 
     </script>
 </head>
@@ -34,9 +45,9 @@
 
     <div class="lay-hsz-06 lay-vsz-01"></div>
     <div class="lay-hsz-02 lay-vsz-01"></div>
-    <input class="lay-hsz-02 lay-vsz-01 sb-cell button" type="button" name="conn" value="Conectar" onclick=""/>
+    <input class="lay-hsz-02 lay-vsz-01 sb-cell button" type="button" name="conn" value="Conectar" onclick="loadUser()"/>
     <div class="lay-hsz-02 lay-vsz-01"></div>
-    <div class="lay-hsz-06 lay-vsz-06"></div>
+    <div class="lay-hsz-06 lay-vsz-06" name="demo"></div>
 </form>
 <div class="lay-hsz-03"></div>
 <div class="lay-hsz-12 footer"></div>
