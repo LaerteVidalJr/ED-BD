@@ -10,7 +10,33 @@
 <div class="lay-hsz-12 flex-cnt">
     <img src="icon.ico"/><div class="header">Biblioteca</div>
 </div>
+<div class="lay-hsz-12 sb-cell grid-cnt">
+<div class="lay-hsz-03"></div>
+<form class="lay-hsz-06 grid-cnt" method="post" action="procedures/load.php">
+    <div class="lay-hsz-06 lay-vsz-06"></div>
 
-<div class="lay-hsz-12 sb-cell grid-cnt"></div>
+    <div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Perfíl:</div></div>
+    <select class="lay-hsz-05 lay-vsz-01" name="perf">
+        <option value="adm">Administrador</option>
+        <option value="fnc">Funcionário</option>
+        <option value="usr" selected>Usuário</option>
+    </select>
+
+    <div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Usuário:</div></div>
+    <input class="lay-hsz-05 lay-vsz-01" type="text" name="user" value=""/>
+
+    <div class="lay-hsz-01 lay-vsz-01 flex-cnt"><div>Senha:</div></div>
+    <input class="lay-hsz-05 lay-vsz-01" type="password" name="pass" value=""/>
+
+    <div class="lay-hsz-06 lay-vsz-01"></div>
+    <div class="lay-hsz-02 lay-vsz-01"></div>
+    <input class="lay-hsz-02 lay-vsz-01 sb-cell button" type="submit" name="submit" value="Conectar"/>
+    <div class="lay-hsz-02 lay-vsz-01"></div>
+    <div class="lay-hsz-06 lay-vsz-06"></div>
+</form>
+<div class="lay-hsz-03"></div>
+<div class="lay-hsz-12 footer"></div>
+</div>
+<div class="lay-hsz-12 footer"></div>
 </body>
 </html>
