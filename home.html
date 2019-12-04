@@ -11,14 +11,14 @@
 
 	var users;
 
-	function loadhtml(url) {
+	function loadhtml() {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				document.write(this.responseText);
+				document.getElementById("panel").innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", url, true);
+		xhttp.open("GET", "home"+sessionStorage.getItem("perfil")+".html", true);
 		xhttp.send();
 	}
     </script>
@@ -27,26 +27,7 @@
     <div class="lay-hsz-12 flex-cnt">
         <img src="icon.ico"/><div class="header">Biblioteca</div>
     </div>
-    <div class="lay-hsz-12 sb-cell grid-cnt">
-        <script type="text/javascript">
-            if(sessionStorage.getItem("perfil")=="adm"){
-                loadhtml("homeadm.html");
-            }
-            if(sessionStorage.getItem("perfil")=="fnc"){
-                loadhtml("homefnc.html");
-            }
-            if(sessionStorage.getItem("perfil")=="usr"){
-                loadhtml("homeusr.html");
-            }
-        </script>
-        <a class="lay-hsz-01 lay-vsz-fx sb-cell flex-cnt button" href="pesquisa.php">
-            <div >Pesquisa</div>
-        </a>
-        <a class="lay-hsz-01 lay-vsz-fx sb-cell flex-cnt button" href="procedures/unload.php">
-            <div >Sair</div>
-        </a>
-        <div class="lay-hsz-07 lay-vsz-08 grid-cnt"></div>
-    </div>
+    <div class="lay-hsz-12 sb-cell grid-cnt" id="panel"></div>
     <div class="lay-hsz-12 footer" id ></div>
 </body>
 </html>
