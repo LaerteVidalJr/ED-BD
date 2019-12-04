@@ -101,6 +101,10 @@ body{
     background-color: #e2c100;
 }
 
+.button:focus{
+    background-color: #e2c100;
+}
+
 .button:active{
     background-color: #e2c100;
     color: #FFFFFF;
