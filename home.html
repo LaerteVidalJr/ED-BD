@@ -8,9 +8,6 @@
 	<link rel="icon" type="image/x-icon" href="icon.ico"/>
 
     <script type="text/javascript">
-
-	var users;
-
 	function loadhtml() {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -21,13 +18,15 @@
 		xhttp.open("GET", "home"+sessionStorage.getItem("perfil")+".html", true);
 		xhttp.send();
 	}
+
+    loadhtml();
     </script>
 </head>
 <body>
     <div class="lay-hsz-12 flex-cnt">
         <img src="icon.ico"/><div class="header">Biblioteca</div>
     </div>
-    <div class="lay-hsz-12 sb-cell grid-cnt" id="panel" onload="loadhtml()"></div>
+    <div class="lay-hsz-12 sb-cell grid-cnt" id="panel"></div>
     <div class="lay-hsz-12 footer" id ></div>
 </body>
 </html>
